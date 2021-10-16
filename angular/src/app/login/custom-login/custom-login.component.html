@@ -1,0 +1,20 @@
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+
+        <div class="fadeIn first">
+
+        </div>
+
+
+        <form>
+            <input type="text" id="login" [(ngModel)]="login.Username" class="fadeIn second" name="نام کاربری " placeholder="نام کاربری ">
+            <input type="password" id="password" class="fadeIn third" name="رمز" placeholder="رمز" [(ngModel)]="login.Password">
+            <button type="submit" (click)="onlogin()" class="fadeIn fourth" value=" Log In ">ورود</button>
+        </form>
+
+        <div id="formFooter ">
+            <a class="underlineHover " [routerLink]="['/client/product-list']">ورود به صفحه خبر</a>
+        </div>
+
+    </div>
+</div>

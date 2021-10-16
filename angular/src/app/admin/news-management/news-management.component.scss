@@ -1,0 +1,57 @@
+.panel {
+    .mat-table {
+        td,
+        th {
+            text-align: center;
+        }
+        img {
+            object-fit: cover;
+            max-width: 60px;
+            height: 100px;
+            margin: 70px;
+        }
+        .available {
+            color: darkgreen;
+        }
+        .unavailable {
+            color: red;
+        }
+    }
+    h4 {
+        text-align: center;
+        padding: 40px;
+        color: purple;
+    }
+}
+
+.footer {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    position: absolute;
+}
+
+.mat-paginator {
+    height: 90px;
+    padding-top: 12px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    position: absolute;
+}
+
+.mat-paginator-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    position: absolute;
+}

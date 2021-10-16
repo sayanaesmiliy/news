@@ -1,0 +1,87 @@
+@import 'assets/styles/fonts';
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+*:not(mat-icon) {
+    font-family: IRANSansWeb !important;
+}
+html {
+    font-size: 13.5px;
+    height: 100vh;
+}
+body {
+    direction: rtl;
+    line-height: 24px;
+    padding: 10px;
+    margin: 0px;
+    background-color:#ebf3ef;
+}
+a {
+    text-decoration: none !important;
+    color: inherit;
+}
+button {
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    padding: 5px 20px;
+    border-radius: 7px;
+    &:disabled {
+        background-image: none !important;
+        background-color: silver !important;
+        cursor: default !important;
+    }
+}
+table {
+    width: 100% !important;
+}
+textarea {
+    padding: 10px !important;
+    background-color: #fafafa !important;
+    -webkit-box-sizing: border-box !important;
+    -moz-box-sizing: border-box !important;
+    box-sizing: border-box !important;
+    text-align: justify !important;
+    color: #666666 !important;
+    line-height: 30px !important;
+}
+
+.mat-icon {
+    vertical-align: middle;
+}
+.mat-form-field {
+    text-align: right !important;
+    width: 100% !important;
+    .mat-icon {
+        color: gray;
+    }
+}
+
+
+/* ..........Responsive Styles........... */
+// Small Screens
+@media screen and (max-width: 1024px) {
+
+}
+
+// Tablet
+@media screen and (max-width: 767px) {
+
+}
+
+// Mobile
+@media screen and (max-width: 575px) {
+    html {
+        font-size: 12px;
+    }
+    body {
+        background-image: unset;
+    }
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

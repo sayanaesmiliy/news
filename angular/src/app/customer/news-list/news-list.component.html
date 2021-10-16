@@ -1,0 +1,31 @@
+<div class="panel">
+    <mat-card *ngFor="let product of products">
+        <img [src]="product.imageLink ? product.imageLink : 'assets/images/default.png'">
+        <mat-card-content>
+            <p>
+                {{ product.title }}
+            </p>
+            <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+                <span class="box">
+         
+                </span>
+                <div>
+                    <!-- 
+                    <button mat-icon-button color="warn" (click)="deleteProduct(product.id)">
+                        <mat-icon>delete</mat-icon> 
+                    </button> -->
+
+                    <a mat-icon-button [routerLink]="'/client/product/' + product.id">
+                        <mat-icon>visibility</mat-icon>
+                    </a>
+
+
+                </div>
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button (click)="addToCart(product)">افزودن به لیست خبر</button>
+        </mat-card-actions>
+    </mat-card>
+
+</div>

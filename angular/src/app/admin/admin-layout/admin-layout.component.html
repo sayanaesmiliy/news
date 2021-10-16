@@ -1,0 +1,15 @@
+<header>
+    <span>
+        <mat-icon>admin_panel_settings</mat-icon> ایران خبر
+    </span>
+    <div>
+        <button mat-stroked-button [routerLink]="'add-product'" color="primary">
+            <mat-icon>add</mat-icon> افزودن خبر
+        </button>
+        <button class="btn-home" mat-icon-button routerLinkActive="active" [routerLink]="['/client/product-list']" title="اخبار جدید">
+            <mat-icon>storefront</mat-icon>
+        </button>
+    </div>
+
+</header>
+<router-outlet></router-outlet>

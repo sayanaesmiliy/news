@@ -1,0 +1,31 @@
+<div class="panel">
+    <div class="header">
+        <img [src]="product.imageLink ? product.imageLink : 'assets/images/default.png'">
+        <h4>{{ product.title }}</h4>
+    </div>
+    <hr>
+    <div class="details">
+        <small>توضیحات: </small>
+        <p>{{ product.details }}</p>
+    </div>
+
+    <div class="row">
+
+        <div>
+            <small>منبع : </small> <span class="mark">{{ product.brand }}</span>
+        </div>
+
+
+    </div>
+
+
+
+
+    <div class="footer">
+        <div class="footer">
+            <button mat-mini-fab color="warn" routerLinkActive="active" [routerLink]="['/client/product-list']"><mat-icon>home</mat-icon></button>
+        </div>
+        <div class="footer"> <button mat-mini-fab color="accent" (click)="addToCart(product)"> <mat-icon>plus_one</mat-icon></button>
+        </div>
+    </div>
+</div>

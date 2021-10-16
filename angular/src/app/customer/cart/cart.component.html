@@ -1,0 +1,52 @@
+<div *ngIf="cartProducts.length != 0">
+    <h4>
+        {{cartProducts.length}} خبر های شما
+    </h4>
+    <h4>
+        <span> اخبار شما: </span>
+
+    </h4>
+</div>
+
+<div class="panel">
+    <ng-container *ngIf="cartProducts.length != 0; else NotCartProducts">
+
+        <mat-card *ngFor="let cartProduct of cartProducts">
+            <mat-card-title-group>
+                <img matCardAvatar [src]="cartProduct.imageLink ? cartProduct.imageLink : 'assets/images/default.png'">
+                <mat-card-title>{{ cartProduct.title }}</mat-card-title>
+
+            </mat-card-title-group>
+
+            <mat-card-content>
+                منبع: {{ cartProduct.brand }}
+
+            </mat-card-content>
+
+            <mat-card-footer>
+                <a mat-icon-button color="primary" [routerLink]="'/client/product/'+cartProduct.id">
+                    <mat-icon>visibility</mat-icon>
+                </a>
+                <button mat-icon-button color="warn" (click)="removeFromCart(cartProduct)"><mat-icon>delete</mat-icon></button>
+                <mat-accordion>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                ادامه خبر
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <p>{{ cartProduct.details }}</p>
+                    </mat-expansion-panel>
+                </mat-accordion>
+            </mat-card-footer>
+        </mat-card>
+
+    </ng-container>
+
+    <ng-template #NotCartProducts>
+        <h4>اخبار شما خالی می باشد</h4>
+    </ng-template>
+    <div class="footer">
+        <button mat-button color="warn" routerLinkActive="active" [routerLink]="['/client/product-list']">بازگشت</button>
+    </div>
+</div>

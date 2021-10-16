@@ -1,0 +1,72 @@
+.panel {
+    max-width: 1000px;
+    min-height: 100px;
+    margin: auto;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px dashed silver;
+    .header {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+        img {
+            max-width: 300px;
+            object-fit: contain;
+            height: 240px;
+        }
+    }
+    .details {
+        margin-top: 20px;
+        p {
+            font-size: .9rem;
+            padding: 10px;
+            text-align: justify;
+            border-radius: 10px;
+            background: linear-gradient(to left, #f1f1f1, #fcfcfc);
+        }
+    }
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 10px;
+        div {
+            flex-grow: 1;
+            .mark {
+                padding: 3px 6px;
+                border-radius: 10px;
+                background-color: goldenrod;
+                color: white;
+            }
+            .mark2 {
+                @extend .mark;
+                background-color: green;
+            }
+            .mark3 {
+                @extend .mark;
+                background-color: crimson;
+            }
+            .price {
+                border-radius: 8px;
+                padding: 3px;
+                color: crimson;
+            }
+            .price2 {
+                border-radius: 8px;
+                padding: 3px;
+                color: green;
+                font-weight: bold;
+            }
+        }
+    }
+    .footer {
+        margin-top: 40px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        margin-left: 5px;
+    }
+}

@@ -1,0 +1,67 @@
+<header>
+    <button *ngIf="role === 'ADMIN'" mat-icon-button [routerLink]="'/admin/product-management'" title="پنل ادمین">
+        <mat-icon>admin_panel_settings</mat-icon>
+    </button>
+    <h1 class=title1> ایران خبر</h1>
+    <div class="cart" title="خبر های من " [routerLink]="'/client/cart'">
+        <span class="count"> {{ cartProductsLength }} </span>
+        <mat-icon>home</mat-icon>
+    </div>
+
+</header>
+
+
+<div class="menunews">
+    <button mat-button>اخبار روز</button>
+    <button mat-button [matMenuTriggerFor]="belowMenu">ورزشی</button>
+    <mat-menu #belowMenu="matMenu" yPosition="below">
+        <button mat-menu-item>المپیک</button>
+        <button mat-menu-item>ایران</button>
+    </mat-menu>
+    <button mat-button [matMenuTriggerFor]="beforeMenu">سیاسی</button>
+    <mat-menu #beforeMenu="matMenu" xPosition="before">
+        <button mat-menu-item> ایران</button>
+        <button mat-menu-item> جهان</button>
+    </mat-menu>
+    <button mat-button [matMenuTriggerFor]="afterMenu">فرهنگی</button>
+    <mat-menu #afterMenu="matMenu" xPosition="after">
+        <button mat-menu-item> علمی</button>
+        <button mat-menu-item> هنری</button>
+    </mat-menu>
+    <button mat-button [routerLink]="'/login'">خروج</button>
+
+</div>
+<div>
+    <mat-accordion class="mataccord">
+        <mat-expansion-panel hideToggle class="matexpansionspace">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    اخبار روز
+                </mat-panel-title>
+                <mat-panel-description>
+                    This is a summary of the content
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <p>This is the primary content of the panel.</p>
+        </mat-expansion-panel>
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    عناوین کل اخبار
+                </mat-panel-title>
+                <mat-panel-description>
+
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <p>استاد رحیم پور
+            </p>
+            <p> کرونا
+            </p>
+            <p>تحولات افغانستان
+            </p>
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>
+<router-outlet>
+</router-outlet>

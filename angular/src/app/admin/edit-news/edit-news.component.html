@@ -1,0 +1,58 @@
+<form [formGroup]="Form" (ngSubmit)="submit()">
+    <div class="panel">
+        <div class="row">
+            <div class="grow-1">
+                <mat-form-field>
+                    <mat-label>عنوان خبر</mat-label>
+                    <input matInput type="text" formControlName="title">
+                    <mat-icon matSuffix>toc</mat-icon>
+                    <mat-error *ngIf="Form.controls.title.hasError('required')">
+                        عنوان را وارد کنید
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="grow-1">
+                <mat-form-field>
+                    <mat-label>توضیحات خبر</mat-label>
+                    <textarea matInput rows="2" cols="40" formControlName="details"></textarea>
+                </mat-form-field>
+            </div>
+        </div>
+
+
+
+        <div class="grow-1">
+            <mat-form-field>
+                <mat-label>خبر</mat-label>
+                <input matInput type="text" formControlName="brand">
+                <mat-icon matSuffix>local_convenience_store</mat-icon>
+            </mat-form-field>
+        </div>
+
+
+        <div class="row">
+            <div class="grow-1">
+                <mat-form-field>
+                    <mat-label>لینک تصویر محصول</mat-label>
+                    <input matInput type="text" [(ngModel)]="imageLink" formControlName="imageLink">
+                    <mat-icon matSuffix>insert_photo</mat-icon>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="grow-1">
+                <img [src]="imageLink ? imageLink : '/assets/images/default.png'">
+            </div>
+        </div>
+
+
+        <div class="footer">
+            <button type="submit" mat-flat-button color="primary">ویرایش خبر</button>
+            <button mat-button color="warn" [routerLink]="'/admin/product-management'">بازگشت</button>
+        </div>
+    </div>
+</form>

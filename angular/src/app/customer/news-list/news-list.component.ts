@@ -43,17 +43,13 @@ export class ProductListComponent implements OnInit {
          })
      ).subscribe();
   }
-
-
-
- 
-
   addToCart(product: IProduct) {
     this.service.AddToCart(product);
+    alert('با موفقیت اضافه شد');
   }
   
   deleteProduct(id: number) {
-    let isYes = confirm(`آیا از حذف محصول  مطمئن هستید؟`);
+    let isYes = confirm(`آیا از حذف خبر  مطمئن هستید؟`);
     if(isYes) {
       this.service.DeleteProduct(id).subscribe(()=> {
         this.loadData();

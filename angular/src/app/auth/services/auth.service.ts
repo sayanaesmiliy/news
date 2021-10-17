@@ -12,8 +12,9 @@ import { User } from 'src/app/models/user';
 export class AuthService {
 
   currentUser$ = new BehaviorSubject<User>({
-    role: 'USER'
+    role: 'USER'    
   });
+  
   token = '';
   
   public readonly INITIAL_PATH = '/client/product-list';
@@ -33,6 +34,7 @@ export class AuthService {
     const token = localStorage.getItem('token');
     const role = localStorage.getItem('role');
     const user = {} as User;
+    
     if( token !== undefined && role !== undefined){
       user.role = role as Role;
       this.token = token;
@@ -60,8 +62,10 @@ export class AuthService {
       catchError(() => of(false))
     );
   }
+ 
 
-  getCurrentUser$(): Observable<User> {// 
+
+  getCurrentUser$(): Observable<User> {
 
     return this.currentUser$;
    
@@ -72,6 +76,23 @@ export class AuthService {
   
   }
 
- 
+  doLogin(res: any) {
+    localStorage.setItem('token', res.token);
+    localStorage.setItem('role', res.role);
+
+    const user = {} as User;
+    if( res.token !== undefined &&res. role !== undefined){
+      user.role = res.role as Role;
+      this.token = res.token;
+      this.currentUser$.next(user); 
+    }
+  }
+
+  logout() {    
+    const user = {} as User;
+    this.currentUser$.next(user); 
+    localStorage.removeItem('token'); 
+    localStorage.removeItem('role');     
+  }
 
 }

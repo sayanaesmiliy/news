@@ -2,12 +2,12 @@ import { ActivatedRouteSnapshot, Router, RouterStateSnapshot } from '@angular/ro
 import { Observable, of } from 'rxjs';
 import { Token } from 'src/app/models/token';
 import { User } from 'src/app/models/user';
-import { gurdService } from './gurd.service';
+//import { gurdService } from './gurd.service';
 
 
 export class JwtAuthStrategy {
   constructor(
-    private auth: gurdService,
+    //private auth: gurdService,
     private router: Router
   ) {}
 

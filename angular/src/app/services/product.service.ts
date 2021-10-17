@@ -33,7 +33,7 @@ export class ProductService {
   }
 
   AddProduct(product: Product): Observable<void> {
-    // debugger;
+    // 
     return this.httpClient.post<void>(this.apiBaseUrl + '/api/products', product, { headers: this.headers });
   }
 

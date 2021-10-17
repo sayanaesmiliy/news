@@ -3,7 +3,7 @@
         <mat-icon>admin_panel_settings</mat-icon>
     </button>
     <h1 class=title1> ایران خبر</h1>
-    <div class="cart" title="خبر های من " [routerLink]="'/client/cart'">
+    <div class="cart" title="خبر های من " *ngIf="role === 'ADMIN'" [routerLink]="'/client/cart'">
         <span class="count"> {{ cartProductsLength }} </span>
         <mat-icon>home</mat-icon>
     </div>
@@ -28,7 +28,7 @@
         <button mat-menu-item> علمی</button>
         <button mat-menu-item> هنری</button>
     </mat-menu>
-    <button mat-button [routerLink]="'/login'">خروج</button>
+    <button mat-button type="reset" (click)="logout()">خروج</button>
 
 </div>
 <div>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
+import { AuthService } from 'src/app/auth/services/auth.service';
 import { loginService } from '../login.service';
 
 @Component({
@@ -17,7 +18,8 @@ export class CustomLoginComponent implements OnInit {
   constructor(
     private service: loginService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
@@ -25,9 +27,8 @@ export class CustomLoginComponent implements OnInit {
   }
 
   onlogin() {
-
     if (!this.login.Username || !this.login.Password) {
-      alert('لطفا پسورد خود را وارد کنید');
+      alert('لطفا نام کاربری و پسورد خود را وارد کنید');
       return;
     }
 
@@ -40,20 +41,16 @@ export class CustomLoginComponent implements OnInit {
         }),
       map(
         res => {
-    // debugger; 
+    //  
           if (!res) {
             alert('نام کاربری یا رمز عبور اشتباه است');
             return;
           }
-          localStorage.setItem('token', res.token);
-          localStorage.setItem('role', res.role); 
+          this.authService.doLogin(res);
           this.router.navigate(['/client/product-list']);
          }
       ),
     ).subscribe();
 
-  }
-  logout() {
-    localStorage.removeItem('token');
   }
 }

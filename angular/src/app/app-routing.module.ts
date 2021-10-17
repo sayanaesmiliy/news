@@ -5,7 +5,7 @@ import { AdminLayoutComponent } from './admin/admin-layout/admin-layout.componen
 import { EditProductComponent } from './admin/edit-news/edit-news.component';
 import { ProductManagementComponent } from './admin/news-management/news-management.component';
 import { AppGuard } from './auth/gurds/app.guard';
-
+//import { ClientGuard } from './auth/gurds/client.guard';
 import { CartComponent } from './customer/cart/cart.component';
 import { CustomerLayoutComponent } from './customer/customer-layout/customer-layout.component';
 import { ProductDetailsComponent } from './customer/news-details/news-details.component';
@@ -18,7 +18,8 @@ const routes: Routes = [
     component: CustomLoginComponent
   },
   {
-    path: 'client', 
+    path: 'client',
+    //canActivate:[ClientGuard], 
     component: CustomerLayoutComponent,
     children:[
       {
@@ -36,6 +37,7 @@ const routes: Routes = [
       },
       {
         path: 'cart', // localhost:4200/cart
+        canActivate:[AppGuard],
         component: CartComponent
       },
     ]

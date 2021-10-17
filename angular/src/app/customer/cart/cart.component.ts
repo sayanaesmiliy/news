@@ -30,8 +30,11 @@ export class CartComponent implements OnInit {
 
 
   removeFromCart(product: IProduct) {
-
-    this.service.RemoveFromCart(product);
+    let isYes = confirm(`آیا از حذف خبر  مطمئن هستید؟`);
+    if(isYes) {  
+       this.service.RemoveFromCart(product);
+      };
+ 
   }
 
 }
